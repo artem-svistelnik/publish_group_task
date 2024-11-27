@@ -6,6 +6,6 @@ DEFAULT_APPS = (
     "django.contrib.messages",
     "django.contrib.staticfiles",
 )
-DEPENDENCIES = ()
-MODULES = ()
+DEPENDENCIES = ("crispy_forms",)
+MODULES = ("account","crispy_bootstrap5")
 INSTALLED_APPS = MODULES + DEPENDENCIES + DEFAULT_APPS
