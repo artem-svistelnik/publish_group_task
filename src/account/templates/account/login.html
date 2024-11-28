@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
-{% block title %}Вхід{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
     <div class="card bg-secondary text-white p-4 mx-auto" style="max-width: 400px;">
-        <h2 class="text-center mb-4">Вхід</h2>
+        <h2 class="text-center mb-4">Login</h2>
 
         {% if error %}
             <div class="alert alert-danger">
@@ -17,7 +17,7 @@
             {% csrf_token %}
 
             <div class="mb-3">
-                <label for="id_username" class="form-label">Логін</label>
+                <label for="id_username" class="form-label">Username</label>
                 {{ form.username }}
                 {% if form.username.errors %}
                     <div class="alert alert-danger">
@@ -29,7 +29,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="id_password" class="form-label">Пароль</label>
+                <label for="id_password" class="form-label">Password</label>
                 {{ form.password }}
                 {% if form.password.errors %}
                     <div class="alert alert-danger">
@@ -41,11 +41,11 @@
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary w-100">Увійти</button>
+                <button type="submit" class="btn btn-primary w-100">Sign in</button>
             </div>
 
             <div class="text-center">
-                <p>Немає акаунту? <a href="{% url 'account:register' %}" class="text-primary">Зареєструйтесь</a></p>
+                <p>Немає акаунту? <a href="{% url 'account:register' %}" class="text-primary">Sign up</a></p>
             </div>
         </form>
     </div>
