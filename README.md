@@ -1,5 +1,5 @@
 # publish_group_task
-publish group test task
+
 *To start the project you need to execute:*
 
 * clone project repo
@@ -15,6 +15,7 @@ publish group test task
 
 You can fill db or run `make load` for load dump (**when container is running**)
 * execute the command `make test` for run tests
+
 you can use user from dump:
 
 *admin creds for admin panel or site:*
