@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Summary{% endblock %}
+
+{% block content %}
+    <div class="card bg-secondary text-white p-4 mx-auto" style="max-width: 400px;">
+
+        {% if error %}
+            <div class="alert alert-danger">
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+        <h1 class="text-center">Summary page</h1>
+        <div class="text-center">
+            <a href="{% url 'data_aggregator:upload' %}" class="btn btn-primary btn-lg px-4 py-2">
+                <i class="bi bi-upload"></i> Upload file
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="container">
+        <h1 class="text-center mb-4">Aggregated Data</h1>
+
+        <div class="text-center mb-4">
+            <a href="?period=year" class="btn btn-info{% if period == 'year' %} active{% endif %}">By Year</a>
+            <a href="?period=month" class="btn btn-info{% if period == 'month' %} active{% endif %}">By Month</a>
+        </div>
+
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Year{% if period == 'month' %} & Month{% endif %}</th>
+                <th>Total Impressions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in summary_data %}
+            <tr>
+                <td>
+                    {% if period == 'month' %}
+                        {{ row.year }}-{{ row.month }}
+                    {% else %}
+                        {{ row.year }}
+                    {% endif %}
+                </td>
+                <td>{{ row.total_impr }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+
+{% endblock %}
